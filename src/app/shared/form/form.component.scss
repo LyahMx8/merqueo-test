@@ -12,6 +12,9 @@
     width: 546px;
     margin: 18px auto 0;
     display: block;
+    @media (max-width: 768px) {
+      width: 80%;
+    }
     .user-form__field {
       padding: 14px 16px;
       border: 1px solid #383838;
@@ -20,9 +23,6 @@
         font-size: 13px;
         padding: 0;
         width: calc(100% - 42px);
-        @media (max-width: 560px) {
-          width: 100%;
-        }
         &.ng-invalid {
           &.ng-touched {
             border: 1px solid red;
