@@ -1,0 +1,101 @@
+.home-category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    &.inverted-category {
+      flex-direction: column-reverse;
+    }
+  }
+  .home-category__banner {
+    width: 638px;
+    height: 526px;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &:hover {
+      img {
+        filter: grayscale(30%);
+      }
+      .slider__button {
+        top: 0;
+        bottom: 0;
+        margin: auto !important;
+        opacity: 1;
+        transition: .2s all ease;
+      }
+    }
+    .slider__button {
+      opacity: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto !important;
+    }
+  }
+  .home-category__description {
+    width: 638px;
+    height: 526px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    &-first {
+      background-color: #F0F0F0;
+    }
+    img {
+      width: 87px;
+      height: 87px;
+      margin-bottom: 37px;
+    }
+    h2 {
+      font-size: 27px;
+      color: #000;
+      position: relative;
+      padding-bottom: 28px;
+      margin-bottom: 23px;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0 auto;
+        height: 2px;
+        width: 32px;
+        background-color: #9C9A9A;
+      }
+    }
+    p {
+      font-size: 13px;
+      line-height: 15px;
+      color: #9C9A9A;
+      max-width: 200px;
+      text-align: center;
+      margin: 0 auto 42px;
+    }
+    a {
+      font-size: 13px;
+      line-height: 15px;
+      color: #9C9A9A;
+      max-width: 200px;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      &::before {
+        content: "\ea55";
+        font-family: "pufi-ico";
+        font-size: 10px;
+        color: #9C9A9A;
+        display: inline-block;
+        transform: rotate(90deg);
+        padding-right: 6px;
+      }
+    }
+  }
+}

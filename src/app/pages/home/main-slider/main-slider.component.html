@@ -1,0 +1,18 @@
+<swiper
+  [config]="config"
+>
+  <ng-template swiperSlide>
+    <picture>
+      <source media="(max-width:768px)" srcset="/assets/images/banner-mobile.png">
+      <img src="/assets/images/banner.png" alt="Flowers" style="width:100%;">
+    </picture>
+    <a class="slider__button" href="/details">SHOP</a>
+  </ng-template>
+  <ng-template swiperSlide>
+    <picture>
+      <source media="(max-width:768px)" srcset="/assets/images/banner-mobile-2.png">
+      <img src="/assets/images/banner-2.png" alt="Flowers" style="width:100%;">
+    </picture>
+    <a class="slider__button" href="/details">SHOP</a>
+  </ng-template>
+</swiper>

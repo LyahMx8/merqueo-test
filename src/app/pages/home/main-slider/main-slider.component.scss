@@ -1,0 +1,46 @@
+.swiper-pagination {
+  bottom: 17px;
+  .swiper-pagination-bullet {
+    background-color: transparent;
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+    &::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      display: block;
+      border-radius: 50%;
+      margin: 2.5px;
+      background-color: #fff;
+    }
+    &-active {
+      &::before {
+        width: 15px;
+        height: 15px;
+        margin: 0;
+        content: '\ea59';
+        font-family: 'pufi-ico';
+        font-size: 15px;
+        color: #fff;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.swiper-slide {
+  position: relative;
+  source,
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    object-fit: cover;
+  }
+  .slider__button {
+    width: 112px;
+    bottom: 137px;
+  }
+}

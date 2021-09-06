@@ -1,4 +1,3 @@
-@import 'assets/fonts/fonts';
 @import 'assets/fonts/icons/icomoon.css';
 
 // General Styles
@@ -7,8 +6,8 @@
   padding: 0;
   text-decoration: none;
   list-style: none;
-  font-family: var(--main-font);
-  color: var(--dark);
+  font-family: 'Mukta', sans-serif;
+  color: #000;
   font-size: 13px;
   outline: none;
   box-sizing: border-box;
@@ -72,4 +71,44 @@ button {
       position: initial;
       opacity: 1;
   }
+}
+
+.slider__button {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 110px;
+  height: 51px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 16px;
+  color: #fff;
+  padding: 17px 36px;
+  border: 2px solid #fff;
+  &:hover {
+    background-color: rgba(0,0,0,.4);
+  }
+}
+
+.puff-subtitle {
+  color: #BEBFC0;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 300;
+  text-align: center;
+}
+.puff-title {
+  color: #000;
+  font-size: 36px;
+  line-height: 38px;
+  font-weight: 300;
+  text-align: center;
+}
+.puff-description {
+  color: #000;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  text-align: center;
 }
