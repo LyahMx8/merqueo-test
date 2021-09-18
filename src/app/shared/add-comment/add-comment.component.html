@@ -1,9 +1,7 @@
 <form class="user-form" [formGroup]="userForm" (ngSubmit)="submitMessage()">
-
   <label class="user-form__label">
     <input class="form-input site-description" type="text" maxlength="255" minlength="3"
-      placeholder="Escribe aquí tu estado" formControlName="comment" required>
-    <button [disabled]="this.userForm.invalid" class="form-submit" type="submit">Publicar</button>
+      placeholder="Escribe un comentario" formControlName="comment" required>
+    <button class="form-submit" [disabled]="this.userForm.invalid" type="submit">Publicar</button>
   </label>
-
 </form>

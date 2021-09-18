@@ -1,46 +1,25 @@
-<header class="top-header" id="top-header">
+<header class="main-header" id="top-header">
 
-  <section class="logo-box">
-    <span class="icon-pufi-logo"></span>
-  </section>
+  <div class="empty-element"></div>
+
+  <a class="site-title" [routerLink]="['/']">
+    <h1 class="site-title__content">
+      Merqueo Test
+    </h1>
+  </a>
 
   <section class="main-menu">
-    <ul>
-      <li class="main-menu-link__container">
-        <a [routerLink]="['']" class="main-menu-link">
-          <span class="icon-pufi-puff main-menu__icon"></span>
-          <p class="main-menu__text">PUFI PUFF</p>
-        </a>
-      </li>
-      <li class="main-menu-link__container">
-        <a [routerLink]="['']" class="main-menu-link">
-          <span class="icon-pufi-rain main-menu__icon"></span>
-          <p class="main-menu__text">PUFI RAIN</p>
-        </a>
-      </li>
-      <li class="main-menu-link__container">
-        <a [routerLink]="['']" class="main-menu-link">
-          <span class="icon-pufi-cart main-menu__icon"></span>
-          <p class="main-menu__text">PUFI CART</p>
-        </a>
-      </li>
-      <li class="main-menu-link__container">
-        <a [routerLink]="['']" class="main-menu-link">
-          <span class="icon-pufi-nap main-menu__icon"></span>
-          <p class="main-menu__text">PUFI NAP</p>
-        </a>
-      </li>
-    </ul>
+    <button class="icon-menu" (click)="this.menuOpen = !this.menuOpen"></button>
+    <nav class="acount-links" [ngClass]="menuOpen ? 'menu-open' : ''">
+      <button class="icon-cross" (click)="this.menuOpen = !this.menuOpen"></button>
+      <ul class="acount-links__container">
+        <li class="my-acount acount-links__content">
+          <a class="acount-links__text" [routerLink]="['']">MI CUENTA</a>
+        </li>
+        <li class="my-cart acount-links__content">
+          <a class="acount-links__text" [routerLink]="['']">MI COMPRA</a>
+        </li>
+      </ul>
+    </nav>
   </section>
-
-  <nav class="acount-links">
-    <ul>
-      <li class="my-acount account-links__link">
-        <a [routerLink]="['']">MI CUENTA</a>
-      </li>
-      <li class="my-cart account-links__link">
-        <a [routerLink]="['']">MI COMPRA</a>
-      </li>
-    </ul>
-  </nav>
 </header>

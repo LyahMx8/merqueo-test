@@ -1,0 +1,80 @@
+<article class="comment-card" *ngFor="let comment  of comments" value="{{comment.id}}">
+  <div class="comment-card__post">
+    <section class="card-comment-container">
+      <img class="card-author__photo" src="{{comment.photo}}" alt="Person icon">
+      <div class="card-comment">
+        <h2 class="card-author__name site-subtitle">{{comment.name}}</h2>
+        <span class="card-comment__time site-description-min">{{comment.time | amTimeAgo }}</span>
+        <p class="card-comment__comment site-description">{{comment.comment}}</p>
+      </div>
+    </section>
+
+    <section class="card-reactions-container">
+      <div class="card-likes">
+        <img class="card-likes__photos" src="/assets/images/icon.svg" alt="">
+        <img class="card-likes__photos" src="/assets/images/icon.svg" alt="">
+        <img class="card-likes__photos" src="/assets/images/icon.svg" alt="">
+        <span class="card-likes__count">3 Likes</span>
+      </div>
+
+      <button class="card-comments" (click)="changeElementState('comments', comment.id)">3 Comentarios</button>
+    </section>
+
+    <section class="card-actions-container">
+      <div class="card-actions__react">
+        <div class="card-actions__reactions">
+          <button class="reaction reaction-like" (click)="addReaction($event, comment.id)">
+            <img src="/assets/images/like.svg" alt="Me gusta">
+          </button>
+          <button class="reaction reaction-happy" (click)="addReaction($event, comment.id)">
+            <img src="/assets/images/happy.svg" alt="Me divierte">
+          </button>
+          <button class="reaction reaction-love" (click)="addReaction($event, comment.id)">
+            <img src="/assets/images/love.svg" alt="Me encanta">
+          </button>
+          <button class="reaction reaction-cry" (click)="addReaction($event, comment.id)">
+            <img src="/assets/images/crying.svg" alt="Me hace llorar">
+          </button>
+          <button class="reaction reaction-sad" (click)="addReaction($event, comment.id)">
+            <img src="/assets/images/sad.svg" alt="Me entristece">
+          </button>
+          <button class="reaction reaction-confused" value="Me confunde">
+            <img src="/assets/images/confused.svg" alt="confused">
+          </button>
+        </div>
+        <span class="card-actions__react-text">Reaccionar</span>
+      </div>
+
+      <!-- <div class="card-actions__reacted">
+      <div class="card-actions__reactions">
+        <button class="reaction reaction-like" value="Me gusta">
+          <img src="/assets/images/like.svg" alt="like">
+        </button>
+        <button class="reaction reaction-happy" value="Me divierte">
+          <img src="/assets/images/happy.svg" alt="happy">
+        </button>
+        <button class="reaction reaction-love" value="Me encanta">
+          <img src="/assets/images/love.svg" alt="love">
+        </button>
+        <button class="reaction reaction-cry" value="Me hace llorar">
+          <img src="/assets/images/crying.svg" alt="crying">
+        </button>
+        <button class="reaction reaction-sad" value="Me entristece">
+          <img src="/assets/images/sad.svg" alt="sad">
+        </button>
+        <button class="reaction reaction-confused" value="Me confunde">
+          <img src="/assets/images/confused.svg" alt="confused">
+        </button>
+      </div>
+      <span class="card-actions__react-text"></span>
+    </div> -->
+
+      <button class="card-actions__comment" (click)="changeElementState('addComment', comment.id)">Comentar</button>
+    </section>
+  </div>
+
+  <app-add-comment *ngIf="addComments && id == comment.id"></app-add-comment>
+
+  <app-post-comments *ngIf="activeSubComments && id == comment.id"></app-post-comments>
+
+</article>

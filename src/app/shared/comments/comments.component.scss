@@ -1,0 +1,115 @@
+@import "../../../assets/sass/_variables.scss";
+
+.comment-card {
+  margin-bottom: 20px;
+  .comment-card__post {
+    @include card(660px, auto, block);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    .card-comment-container {
+      @include flex(row, flex-start, flex-start);
+      margin-bottom: 21px;
+      .card-author__photo {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+      }
+      .card-comment {
+        margin-left: 10px;
+      }
+    }
+    .card-reactions-container {
+      @include flex(row, center, space-between);
+      padding: 8px 10px;
+      margin-bottom: 30px;
+      .card-likes {
+        @include flex(row, center, flex-start);
+        .card-likes__photos {
+          width: 20px;
+          height: 20px;
+          border: 1px solid #fff;
+          margin-left: -5px;
+          border-radius: 50%;
+          object-fit: cover;
+          object-position: center;
+        }
+        .card-likes__count {
+          @include font(var(--main), 12px, 18px, 700, left);
+          margin-left: 10px;
+        }
+      }
+
+      .card-comments {
+        @include font(var(--dark-gray), 12px, 18px, 600, left);
+        &:hover {
+          color: var(--main);
+        }
+      }
+    }
+
+    .card-actions-container {
+      @include flex(row, center, space-between);
+      padding: 0 10px;
+      .card-actions__react {
+        position: relative;
+        &:hover {
+          .card-actions__reactions {
+            opacity: 1;
+            width: auto;
+            .reaction {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+        .card-actions__reactions {
+          padding: 6px 5px;
+          background: #f6f6f4;
+          border-radius: 15px;
+          @include flex(row, center, flex-start);
+          gap: 5px;
+          opacity: 0;
+          width: 0;
+          z-index: 2;
+          position: absolute;
+          bottom: 14px;
+          left: -26px;
+          transition: 0.4s all ease;
+          .reaction {
+            width: 0;
+            height: 0;
+            object-fit: contain;
+            transition: 0.4s all ease;
+            &:hover {
+              transform: scale(1.2);
+            }
+          }
+        }
+
+        &:hover {
+          .card-actions__react-text {
+            color: var(--main);
+          }
+        }
+        .card-actions__react-text {
+          @include font(var(--dark-gray), 12px, 16px, 600, center);
+        }
+      }
+      .card-actions__comment {
+        @include font(var(--dark-gray), 12px, 18px, 600, left);
+        &:hover {
+          color: var(--main);
+        }
+      }
+    }
+  }
+  app-add-comment,
+  app-post-comments {
+    position: relative;
+    top: -15px;
+    z-index: 1;
+  }
+}

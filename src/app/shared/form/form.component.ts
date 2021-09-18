@@ -1,20 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import {first} from 'rxjs/operators';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { first } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormService } from '@core/_services/form.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
+
 export class FormComponent implements OnInit {
   public userForm: FormGroup
   public error: any
-  public loading: boolean = false
-  public thankYou: boolean = false
+  public persons = [
+    { name: 'Maria', photo: '/assets/images/1.jpg' },
+    { name: 'Juan', photo: '/assets/images/2.jpg' },
+    { name: 'Carlos', photo: '/assets/images/3.jpg' },
+    { name: 'Pedro', photo: '/assets/images/4.jpg' },
+  ]
 
   constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
     private formService: FormService
   ) { }
@@ -23,32 +30,42 @@ export class FormComponent implements OnInit {
     this.createForm()
   }
 
-  createForm(){
+  createForm() {
     this.userForm = this.formBuilder.group({
-      email: ['', [ Validators.required, Validators.email, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) ]]
+      comment: ['', [Validators.required, Validators.pattern('^[A-Za-z\ \ñäáàëéèíìöóòúùÄÁÀËÉÈÍÌÖÓÒÚÙÑñ]+'), Validators.minLength(3), Validators.maxLength(255)]],
     });
   }
 
   submitMessage() {
-    this.userForm.disable()
-    this.loading = true
-    this.formService.postContactForm(this.userForm.value)
-      .pipe(first())
-      .subscribe((data:any) => {
-            this.userForm.reset()
-            this.userForm.enable()
-            this.loading = false
-            this.thankYou = true
-        },
-        err => {
-          if (err.status === 422) {
-            this.error = err;
-            console.log(this.error)
-          } else {
-            this.error = err.error.message;
-            console.log(this.error)
-          }
-        });
+    this.formService.getForm()
+      .subscribe(data => {
+        var currentComments = data
+        var randomId = Math.floor(Math.random() * 9999)
+        var randomPersons = Math.floor(Math.random() * this.persons.length);
+        var person = this.persons[randomPersons]
+        var currentDate = new Date(Date.now())
+
+        var commentObject = {
+          id: randomId,
+          name: person.name,
+          photo: person.photo,
+          time: currentDate,
+          comment: this.userForm.value.comment
+        }
+        currentComments.push(commentObject)
+
+        this.formService.saveForm(currentComments)
+          .pipe(first())
+          .subscribe(() => {
+            console.log('entra')
+            window.location.reload();
+          },
+            err => {
+              console.log(err)
+            });
+      }, err => {
+        console.log(err)
+      })
   }
 
 }

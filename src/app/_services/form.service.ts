@@ -1,21 +1,23 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
-import {Form} from '@core/_models/form';
-
-@Injectable({providedIn: 'root'})
+import {Comment} from '@core/_models/comment';
+@Injectable({ providedIn: 'root' })
 
 export class FormService {
 
-    constructor(private http: HttpClient) {
-    }
+  constructor() {}
 
-    postContactForm(data) {
-        console.log("Contact Form")
-        var body = JSON.stringify({
-          email: data.email
-        })
-        console.log(body)
-        return this.http.post<Form[]>(`https://jsonplaceholder.typicode.com/posts`, body);
+  getForm(): Observable<Comment[]> {
+    if (localStorage.getItem('comments') === null) {
+      return of(JSON.parse(localStorage.getItem('comments') || "[]"));
+    } else {
+      return of(JSON.parse(localStorage.getItem('comments')));
     }
+  }
+
+  saveForm(currentComments):Observable<Comment[]> {
+    localStorage.setItem('comments', JSON.stringify(currentComments));
+    return of(currentComments)
+  }
 }

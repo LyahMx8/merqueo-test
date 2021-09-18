@@ -1,0 +1,33 @@
+@import "../../../assets/sass/_variables.scss";
+
+.comment-card__post {
+  @include card(660px, auto, block);
+  border-radius: 0 0 15px 15px;
+  padding-top: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--top-background);
+  .card-comment-container {
+    @include flex(row, flex-start, flex-start);
+    .card-author__photo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .card-comment {
+      margin-left: 10px;
+      .card-author__name {
+        @include font(var(--main), 12px, 14px, 700, left);
+      }
+      .card-comment__comment {
+        @include font(var(--gray), 12px, 16px, 400, left);
+      }
+      .card-comment__time {
+        @include font(var(--gray), 10px, 12px, 500, left);
+      }
+
+    }
+  }
+}

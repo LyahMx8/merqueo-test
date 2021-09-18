@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'pufi-ico';
+  font-family: 'merqueo-ico';
   src:  url('icomoon.eot?ato2zp');
   src:  url('icomoon.eot?ato2zp#iefix') format('embedded-opentype'),
     url('icomoon.ttf?ato2zp') format('truetype'),
@@ -12,7 +12,7 @@
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'pufi-ico' !important;
+  font-family: 'merqueo-ico' !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -25,19 +25,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-pufi-cart:before {
+.icon-merqueo-cart:before {
   content: "\e900";
 }
-.icon-pufi-logo:before {
+.icon-merqueo-logo:before {
   content: "\e901";
 }
-.icon-pufi-nap:before {
+.icon-merqueo-nap:before {
   content: "\e902";
 }
-.icon-pufi-puff:before {
+.icon-merqueo-puff:before {
   content: "\e903";
 }
-.icon-pufi-rain:before {
+.icon-merqueo-rain:before {
   content: "\e904";
 }
 .icon-home:before {

@@ -2,9 +2,12 @@
 
 .user-form {
   @include card(660px, auto, block);
+  border-radius: 0 0 15px 15px;
   transition: 0.8s all ease;
+  padding-top: 35px;
   margin-left: auto;
   margin-right: auto;
+  background-color: var(--top-background);
   .user-form__label {
     width: 100%;
     margin: 0 auto;

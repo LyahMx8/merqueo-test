@@ -7,7 +7,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  public menu: any
+  public menuOpen: boolean = false
 
   constructor(
   ) { }

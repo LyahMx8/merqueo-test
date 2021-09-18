@@ -11,7 +11,8 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {
     initialNavigation: 'enabled',
     relativeLinkResolution: 'legacy'
-})],
+  })],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
