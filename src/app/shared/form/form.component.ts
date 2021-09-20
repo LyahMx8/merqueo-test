@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormService } from '@core/_services/form.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -14,14 +13,13 @@ export class FormComponent implements OnInit {
   public userForm: FormGroup
   public error: any
   public persons = [
-    { name: 'Maria', photo: '/assets/images/1.jpg' },
+    { name: 'Pedro', photo: '/assets/images/1.jpg' },
     { name: 'Juan', photo: '/assets/images/2.jpg' },
     { name: 'Carlos', photo: '/assets/images/3.jpg' },
-    { name: 'Pedro', photo: '/assets/images/4.jpg' },
+    { name: 'Maria', photo: '/assets/images/4.jpg' },
   ]
 
   constructor(
-    private router: Router,
     private formBuilder: FormBuilder,
     private formService: FormService
   ) { }
@@ -50,14 +48,15 @@ export class FormComponent implements OnInit {
           name: person.name,
           photo: person.photo,
           time: currentDate,
-          comment: this.userForm.value.comment
+          comment: this.userForm.value.comment,
+          reactions: [],
+          comments: []
         }
         currentComments.push(commentObject)
 
-        this.formService.saveForm(currentComments)
+        this.formService.saveComment(currentComments)
           .pipe(first())
           .subscribe(() => {
-            console.log('entra')
             window.location.reload();
           },
             err => {

@@ -16,7 +16,18 @@ export class FormService {
     }
   }
 
-  saveForm(currentComments):Observable<Comment[]> {
+  saveComment(currentComments):Observable<Comment[]> {
+    localStorage.setItem('comments', JSON.stringify(currentComments));
+    return of(currentComments)
+  }
+
+  giveReaction(reaction, objectId):Observable<Comment[]>  {
+    var currentComments = JSON.parse(localStorage.getItem('comments'))
+    currentComments.map(function(comment) {
+      if(comment.id == objectId){
+        comment.reactions.push(reaction)
+      }
+    })
     localStorage.setItem('comments', JSON.stringify(currentComments));
     return of(currentComments)
   }

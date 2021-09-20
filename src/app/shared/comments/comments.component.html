@@ -38,36 +38,36 @@
           <button class="reaction reaction-sad" (click)="addReaction($event, comment.id)">
             <img src="/assets/images/sad.svg" alt="Me entristece">
           </button>
-          <button class="reaction reaction-confused" value="Me confunde">
-            <img src="/assets/images/confused.svg" alt="confused">
+          <button class="reaction reaction-confused" (click)="addReaction($event, comment.id)">
+            <img src="/assets/images/confused.svg" alt="Me confunde">
           </button>
         </div>
         <span class="card-actions__react-text">Reaccionar</span>
       </div>
 
-      <!-- <div class="card-actions__reacted">
-      <div class="card-actions__reactions">
-        <button class="reaction reaction-like" value="Me gusta">
-          <img src="/assets/images/like.svg" alt="like">
-        </button>
-        <button class="reaction reaction-happy" value="Me divierte">
-          <img src="/assets/images/happy.svg" alt="happy">
-        </button>
-        <button class="reaction reaction-love" value="Me encanta">
-          <img src="/assets/images/love.svg" alt="love">
-        </button>
-        <button class="reaction reaction-cry" value="Me hace llorar">
-          <img src="/assets/images/crying.svg" alt="crying">
-        </button>
-        <button class="reaction reaction-sad" value="Me entristece">
-          <img src="/assets/images/sad.svg" alt="sad">
-        </button>
-        <button class="reaction reaction-confused" value="Me confunde">
-          <img src="/assets/images/confused.svg" alt="confused">
-        </button>
+      <div class="card-actions__reacted" *ngIf="myReaction != ''">
+        <div class="card-actions__reactions">
+          <button class="reaction reaction-like" *ngIf="myReaction == 'Me gusta'">
+            <img src="/assets/images/like.svg" alt="like">
+          </button>
+          <button class="reaction reaction-happy" *ngIf="myReaction == 'Me divierte'">
+            <img src="/assets/images/happy.svg" alt="happy">
+          </button>
+          <button class="reaction reaction-love" *ngIf="myReaction == 'Me encanta'">
+            <img src="/assets/images/love.svg" alt="love">
+          </button>
+          <button class="reaction reaction-cry" *ngIf="myReaction == 'Me hace llorar'">
+            <img src="/assets/images/crying.svg" alt="crying">
+          </button>
+          <button class="reaction reaction-sad" *ngIf="myReaction == 'Me entristece'">
+            <img src="/assets/images/sad.svg" alt="sad">
+          </button>
+          <button class="reaction reaction-confused" *ngIf="myReaction == 'Me confunde'">
+            <img src="/assets/images/confused.svg" alt="confused">
+          </button>
+        </div>
+        <span class="card-actions__react-text">{{myReaction}}</span>
       </div>
-      <span class="card-actions__react-text"></span>
-    </div> -->
 
       <button class="card-actions__comment" (click)="changeElementState('addComment', comment.id)">Comentar</button>
     </section>

@@ -10,7 +10,8 @@ export class CommentsComponent implements OnInit {
   public comments: any = []
   public activeSubComments: boolean = false
   public addComments: boolean = false
-  public id: number;
+  public id: number
+  public myReaction:string = ''
 
   constructor(
     private formService: FormService
@@ -42,8 +43,14 @@ export class CommentsComponent implements OnInit {
     }
   }
 
-  addReaction($this) {
-    console.log($this.target.alt);
+  addReaction($this, commentId) {
+    this.formService.giveReaction($this.target.alt, commentId)
+      .subscribe(() => {
+        this.myReaction = $this.target.alt
+      },
+      err => {
+        console.log(err)
+      });
   }
 
 }
