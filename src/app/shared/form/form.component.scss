@@ -12,14 +12,6 @@
     @media (max-width: 768px) {
       width: 80%;
     }
-    &:hover {
-      .form-submit {
-        opacity: 1;
-        height: auto;
-        margin: 15px auto 0;
-        padding: 5px 15px;
-      }
-    }
     .form-input {
       padding: 10px 20px;
       border-radius: 100px;
@@ -57,6 +49,11 @@
       color: #fff;
       font-size: 13px;
       line-height: 18px;
+      &[disabled],
+      &:disabled {
+        filter: opacity(60%);
+        cursor:default;
+      }
     }
   }
   .thanU {

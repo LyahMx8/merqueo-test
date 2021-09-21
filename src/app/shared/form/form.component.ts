@@ -35,7 +35,7 @@ export class FormComponent implements OnInit {
   }
 
   submitMessage() {
-    this.formService.getForm()
+    this.formService.getComments()
       .subscribe(data => {
         var currentComments = data
         var randomId = Math.floor(Math.random() * 9999)

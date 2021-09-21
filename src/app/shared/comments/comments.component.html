@@ -11,10 +11,10 @@
 
     <section class="card-reactions-container">
       <div class="card-likes">
-        <img class="card-likes__photos" src="/assets/images/icon.svg" alt="">
-        <img class="card-likes__photos" src="/assets/images/icon.svg" alt="">
-        <img class="card-likes__photos" src="/assets/images/icon.svg" alt="">
-        <span class="card-likes__count">3 Likes</span>
+        <img *ngFor="let reaction of comment?.reactions | slice:0:3" class="card-likes__photos" src="{{reaction?.person?.photo}}" alt="{{reaction?.person?.name}}">
+        <span class="card-likes__count">
+          {{comment.reactions.length > 0 ? comment.reactions.length + (comment.reactions.length > 1 ? ' Likes' : ' Like') : 'No tienes likes'}}
+        </span>
       </div>
 
       <button class="card-comments" (click)="changeElementState('comments', comment.id)">3 Comentarios</button>
